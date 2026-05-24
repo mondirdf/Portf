@@ -118,6 +118,8 @@ body {
 
 .hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/blue-sky.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: var(--radius-2xl); }
 
+:root[data-theme='dark'] .hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/night-sky-stars.svg'); }
+
 .motion-enter-fade-up,.motion-enter-scale-in,.motion-enter-slide,.motion-section-transition,.motion-hover-lift,.motion-hover-glow,.motion-hover-parallax { will-change: transform, opacity; }
 .motion-section-transition { transition: transform var(--motion-duration-section) var(--motion-ease-natural), opacity var(--motion-duration-section) var(--motion-ease-natural); }
 .motion-hover-lift { transition: transform var(--motion-duration-micro) var(--motion-ease-natural), opacity var(--motion-duration-micro) var(--motion-ease-natural); }
