@@ -112,6 +112,7 @@ export function App() {
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 8);
@@ -119,6 +120,17 @@ function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    const currentTheme = document.documentElement.dataset.theme;
+    setIsDarkMode(currentTheme === 'dark');
+  }, []);
+
+  const toggleTheme = () => {
+    const nextDarkMode = !isDarkMode;
+    document.documentElement.dataset.theme = nextDarkMode ? 'dark' : 'light';
+    setIsDarkMode(nextDarkMode);
+  };
 
   return (
     <GlassNav className={isScrolled ? 'glass-nav--scrolled' : 'glass-nav--top'}>
@@ -128,7 +140,7 @@ function Navbar() {
           scale: isScrolled ? 0.98 : 1,
         }}
         transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto flex w-[88%] max-w-6xl items-center justify-between px-4 py-2.5 md:w-[90%] md:px-6 md:py-3"
+        className="mx-auto flex w-[92%] max-w-6xl items-center justify-between px-3 py-2 md:w-[94%] md:px-5 md:py-2.5"
       >
         <a href="#home" className="text-xl font-extrabold tracking-[0.08em] text-[#3B82F6]">DF</a>
 
@@ -144,10 +156,12 @@ function Navbar() {
 
         <button
           type="button"
-          aria-label="Open menu"
+          aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          title={isDarkMode ? 'Light mode' : 'Dark mode'}
           className="nav-menu-btn"
+          onClick={toggleTheme}
         >
-          <span aria-hidden="true" className="nav-menu-icon" />
+          <span className="nav-theme-icon" aria-hidden="true">{isDarkMode ? '☀️' : '🌙'}</span>
         </button>
       </motion.nav>
     </GlassNav>
