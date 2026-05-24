@@ -222,7 +222,7 @@ body {
 
 .hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/file_000000001838722f877b4a1801ce1378.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: var(--radius-2xl); }
 
-:root[data-theme='dark'] .hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/night-sky-stars.svg'); }
+:root[data-theme='dark'] .hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/file_00000000e14c722f98349b07d8885ad0.png'); }
 
 .motion-enter-fade-up,.motion-enter-scale-in,.motion-enter-slide,.motion-section-transition,.motion-hover-lift,.motion-hover-glow,.motion-hover-parallax { will-change: transform, opacity; }
 .motion-section-transition { transition: transform var(--motion-duration-section) var(--motion-ease-natural), opacity var(--motion-duration-section) var(--motion-ease-natural); }
