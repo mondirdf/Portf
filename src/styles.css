@@ -142,11 +142,11 @@ body {
 
 .motion-enter-fade-up,.motion-enter-scale-in,.motion-enter-slide,.motion-section-transition,.motion-hover-lift,.motion-hover-glow,.motion-hover-parallax { will-change: transform, opacity; }
 .motion-section-transition { transition: transform var(--motion-duration-section) var(--motion-ease-natural), opacity var(--motion-duration-section) var(--motion-ease-natural); }
-.motion-hover-lift { transition: transform var(--motion-duration-micro) var(--motion-ease-natural), opacity var(--motion-duration-micro) var(--motion-ease-natural); }
-.motion-hover-lift:hover { transform: translate3d(0, -4px, 0); }
+.motion-hover-lift { transition: box-shadow var(--motion-duration-micro) var(--motion-ease-natural), opacity var(--motion-duration-micro) var(--motion-ease-natural); }
+.motion-hover-lift:hover { box-shadow: var(--shadow-glow); }
 .motion-hover-glow { transition: box-shadow var(--motion-duration-micro) var(--motion-ease-natural), transform var(--motion-duration-micro) var(--motion-ease-natural); }
 .motion-hover-glow:hover { box-shadow: var(--shadow-glow); transform: translate3d(0, -2px, 0); }
-.motion-hover-parallax:hover { transform: translate3d(2px, -4px, 0) scale(1.01); }
+.motion-hover-parallax:hover { box-shadow: 0 10px 28px color-mix(in srgb, var(--color-accent) 16%, transparent); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
