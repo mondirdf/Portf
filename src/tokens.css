@@ -77,9 +77,15 @@
 
   /* Blur + shadow */
   --blur-low: 10px;
+  --blur-moderate: 16px;
+  --blur-strong: 22px;
   --blur-medium: 20px;
   --blur-high: 30px;
+  --color-tint-soft: rgba(165, 215, 255, 0.16);
+  --color-highlight-inner: rgba(255, 255, 255, 0.32);
   --shadow-soft: 0 10px 30px rgba(8, 20, 46, 0.45);
   --shadow-layered: 0 10px 28px rgba(10, 22, 46, 0.38), 0 28px 70px rgba(2, 8, 22, 0.5);
+  --shadow-glass-dark: 0 10px 30px rgba(3, 10, 28, 0.52), 0 26px 70px rgba(2, 8, 22, 0.52);
+  --shadow-glass-light: 0 10px 22px rgba(12, 32, 60, 0.22), 0 24px 54px rgba(13, 40, 75, 0.16);
   --shadow-glow: 0 0 40px rgba(56, 189, 248, 0.24);
 }

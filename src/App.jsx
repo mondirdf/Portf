@@ -31,6 +31,12 @@ const projects = [
   },
 ];
 
+const glassUsageRules = [
+  'Keep blur moderate; avoid stacking many high-blur layers.',
+  'Reserve strongest glass treatment for hero/nav/CTA areas.',
+  'Use flatter surfaces in content-dense sections for clarity.',
+];
+
 const motionTokens = {
   microDuration: 0.2,
   sectionDuration: 0.42,
@@ -56,8 +62,29 @@ const sectionSlideIn = {
   },
 };
 
-function GlassCard({ className = '', children }) {
-  return <div className={`glass-card ${className}`}>{children}</div>;
+function GlassPanel({ className = '', emphasis = 'flat', children }) {
+  return <div className={`glass-panel glass-panel--${emphasis} ${className}`}>{children}</div>;
+}
+
+function GlassButton({ className = '', variant = 'primary', children, ...props }) {
+  return (
+    <button className={`glass-button glass-button--${variant} motion-button-feedback ${className}`} {...props}>
+      {children}
+    </button>
+  );
+}
+
+function GlassNav({ className = '', children }) {
+  return <header className={`glass-nav ${className}`}>{children}</header>;
+}
+
+function GlassModal({ className = '', title = 'Usage Rules', children }) {
+  return (
+    <div className={`glass-modal ${className}`} role="dialog" aria-modal="true" aria-label={title}>
+      <div className="glass-modal__tint" />
+      <div className="glass-modal__content">{children}</div>
+    </div>
+  );
 }
 
 export function App() {
@@ -78,7 +105,7 @@ export function App() {
 
 function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-border-hairline)] bg-[rgba(4,14,35,0.34)] backdrop-blur-[var(--blur-medium)]">
+    <GlassNav>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <span className="text-lg font-bold tracking-[var(--tracking-heading-wide)] text-[var(--color-accent)]">ALEX DEV</span>
         <ul className="hidden gap-6 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-text-secondary)] md:flex">
@@ -91,7 +118,7 @@ function Navbar() {
           ))}
         </ul>
       </nav>
-    </header>
+    </GlassNav>
   );
 }
 
@@ -115,7 +142,7 @@ function About() {
     <motion.section id="about" className="section-shell motion-section-transition mx-auto max-w-6xl" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionSlideIn}>
       <h3 className="text-heading mb-6">About Me</h3>
       <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
-        <GlassCard className="p-8">
+        <GlassPanel className="p-8" emphasis="hero">
           <p className="text-body text-measure">
             I’m a product-minded developer focused on crafting fast, scalable, and emotionally resonant digital experiences. My work combines precise engineering with a contemporary visual style.
           </p>
@@ -126,13 +153,13 @@ function About() {
               </span>
             ))}
           </div>
-        </GlassCard>
+        </GlassPanel>
         <div className="grid gap-4">
           {stats.map((stat) => (
-            <GlassCard key={stat.label} className="motion-enter-scale-in p-6">
+            <GlassPanel key={stat.label} className="motion-enter-scale-in p-6" emphasis="flat">
               <p className="text-3xl font-bold tracking-[var(--tracking-heading)] text-[var(--color-accent)]">{stat.value}</p>
               <p className="text-caption uppercase tracking-[var(--tracking-button)]">{stat.label}</p>
-            </GlassCard>
+            </GlassPanel>
           ))}
         </div>
       </div>
@@ -147,7 +174,7 @@ function Projects() {
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
           <motion.article key={project.name} whileHover={{ transform: 'translate3d(0,-6px,0) scale(1.02)' }} transition={{ duration: motionTokens.microDuration, ease: motionTokens.easeNatural }} className="motion-hover-lift motion-hover-parallax">
-            <GlassCard className="h-full p-5">
+            <GlassPanel className="h-full p-5" emphasis="flat">
               <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-[var(--color-border-hairline)] bg-gradient-to-br from-[rgba(125,211,252,0.2)] to-[rgba(99,102,241,0.2)] text-sm text-[var(--color-text-secondary)]">
                 {project.preview}
               </div>
@@ -161,10 +188,10 @@ function Projects() {
                 ))}
               </div>
               <div className="flex gap-3">
-                <button className="btn-secondary motion-button-feedback w-full text-sm">Live Demo</button>
-                <button className="btn-primary motion-button-feedback w-full text-sm">GitHub</button>
+                <GlassButton variant="secondary" className="w-full text-sm">Live Demo</GlassButton>
+                <GlassButton className="w-full text-sm">GitHub</GlassButton>
               </div>
-            </GlassCard>
+            </GlassPanel>
           </motion.article>
         ))}
       </div>
@@ -175,45 +202,34 @@ function Projects() {
 function Contact() {
   return (
     <motion.section id="contact" className="motion-section-transition mx-auto max-w-4xl px-6 py-20" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionFadeUp}>
-      <GlassCard className="motion-enter-slide p-8 md:p-10">
+      <GlassModal>
         <h3 className="text-heading mb-4">Let&apos;s Build Something Great</h3>
         <p className="text-body text-measure mb-8">Open to creative collaborations, product builds, and ambitious ideas.</p>
         <form className="space-y-4">
           <input className="glass-input" placeholder="Name" type="text" />
           <input className="glass-input" placeholder="Email" type="email" />
           <textarea className="glass-input min-h-32" placeholder="Message" />
-          <button className="btn-primary motion-button-feedback w-full">Send Message</button>
+          <GlassButton className="w-full">Send Message</GlassButton>
         </form>
         <div className="mt-6 flex gap-4 text-[var(--color-text-caption)]">
           <span className="social-dot motion-hover-glow">in</span>
           <span className="social-dot motion-hover-glow">gh</span>
           <span className="social-dot motion-hover-glow">𝕏</span>
         </div>
-      </GlassCard>
+      </GlassModal>
+      <GlassPanel className="mt-8 p-6" emphasis="flat">
+        <h4 className="text-card-title mb-3">Glass Usage Rules</h4>
+        <ul className="space-y-2 text-body">
+          {glassUsageRules.map((rule) => (
+            <li key={rule} className="text-[var(--color-text-secondary)]">• {rule}</li>
+          ))}
+        </ul>
+      </GlassPanel>
     </motion.section>
   );
 }
 
-function BackgroundFx() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-[var(--color-blob-cyan)] blur-[120px]" />
-      <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-[var(--color-blob-indigo)] blur-[130px]" />
-      <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-[var(--color-blob-blue)] blur-[120px]" />
-      {Array.from({ length: 22 }).map((_, i) => (
-        <span
-          key={i}
-          className="particle"
-          style={{
-            left: `${(i * 17) % 100}%`,
-            animationDelay: `${i * 0.9}s`,
-            animationDuration: `${motionTokens.particleBaseDuration + (i % 8)}s`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
+function BackgroundFx() { return <div className="pointer-events-none absolute inset-0 overflow-hidden" />; }
 
 function Footer() {
   return (
