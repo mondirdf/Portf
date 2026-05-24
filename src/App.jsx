@@ -31,12 +31,19 @@ const projects = [
   },
 ];
 
+const motionTokens = {
+  sectionDuration: 0.72,
+  hoverDuration: 0.24,
+  particleBaseDuration: 14,
+  sectionEase: [0.22, 1, 0.36, 1],
+};
+
 const sectionVariant = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
+    transition: { duration: motionTokens.sectionDuration, ease: motionTokens.sectionEase },
   },
 };
 
@@ -46,7 +53,7 @@ function GlassCard({ className = '', children }) {
 
 export function App() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-void-blue text-white">
+    <div className="relative min-h-screen overflow-x-hidden text-[var(--color-text-primary)]">
       <BackgroundFx />
       <Navbar />
       <main className="relative z-10">
@@ -61,13 +68,13 @@ export function App() {
 
 function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-900/25 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border-hairline)] bg-[rgba(4,14,35,0.34)] backdrop-blur-[var(--blur-medium)]">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-bold tracking-wide text-soft-cyan">ALEX DEV</span>
-        <ul className="hidden gap-6 text-sm text-white/80 md:flex">
+        <span className="text-lg font-bold tracking-wide text-[var(--color-accent)]">ALEX DEV</span>
+        <ul className="hidden gap-6 text-sm text-[var(--color-text-secondary)] md:flex">
           {navLinks.map((item) => (
             <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="transition hover:text-soft-cyan">
+              <a href={`#${item.toLowerCase()}`} className="transition hover:text-[var(--color-accent)]">
                 {item}
               </a>
             </li>
@@ -82,7 +89,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="hero-bg mx-auto grid min-h-screen max-w-6xl items-center px-6 py-20"
+      className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center"
     >
       <motion.div
         initial="hidden"
@@ -91,7 +98,7 @@ function Hero() {
         variants={sectionVariant}
         className="w-full text-center"
       >
-        <h1 className="text-5xl font-extrabold leading-tight text-yellow-300 drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)] md:text-7xl">
+        <h1 className="text-display text-[var(--color-warn)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
           Building intelligent digital experiences.
         </h1>
       </motion.div>
@@ -104,21 +111,21 @@ function About() {
   return (
     <motion.section
       id="about"
-      className="mx-auto max-w-6xl px-6 py-20"
+      className="section-shell mx-auto max-w-6xl"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariant}
     >
-      <h3 className="mb-6 text-3xl font-bold">About Me</h3>
+      <h3 className="text-heading mb-6">About Me</h3>
       <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
         <GlassCard className="p-8">
-          <p className="text-white/75">
+          <p className="text-body">
             I’m a product-minded developer focused on crafting fast, scalable, and emotionally resonant digital experiences. My work combines precise engineering with a contemporary visual style.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {skills.map((skill) => (
-              <span key={skill} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white/80">
+              <span key={skill} className="rounded-full border border-[var(--color-border-hairline)] bg-[var(--surface-glass-low)] px-4 py-2 text-sm text-[var(--color-text-secondary)]">
                 {skill}
               </span>
             ))}
@@ -127,8 +134,8 @@ function About() {
         <div className="grid gap-4">
           {stats.map((stat) => (
             <GlassCard key={stat.label} className="p-6">
-              <p className="text-3xl font-bold text-soft-cyan">{stat.value}</p>
-              <p className="text-white/70">{stat.label}</p>
+              <p className="text-3xl font-bold text-[var(--color-accent)]">{stat.value}</p>
+              <p className="text-[var(--color-text-caption)]">{stat.label}</p>
             </GlassCard>
           ))}
         </div>
@@ -141,25 +148,25 @@ function Projects() {
   return (
     <motion.section
       id="projects"
-      className="mx-auto max-w-6xl px-6 py-20"
+      className="section-shell mx-auto max-w-6xl"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={sectionVariant}
     >
-      <h3 className="mb-10 text-3xl font-bold">Featured Projects</h3>
+      <h3 className="text-heading mb-10">Featured Projects</h3>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          <motion.article key={project.name} whileHover={{ scale: 1.03, y: -6 }} transition={{ duration: 0.25 }}>
+          <motion.article key={project.name} whileHover={{ scale: 1.03, y: -6 }} transition={{ duration: motionTokens.hoverDuration, ease: motionTokens.sectionEase }}>
             <GlassCard className="h-full p-5">
-              <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-white/20 bg-gradient-to-br from-cyan-300/20 to-indigo-500/20 text-sm text-white/75">
+              <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-[var(--color-border-hairline)] bg-gradient-to-br from-[rgba(125,211,252,0.2)] to-[rgba(99,102,241,0.2)] text-sm text-[var(--color-text-secondary)]">
                 {project.preview}
               </div>
               <h4 className="mb-2 text-xl font-semibold">{project.name}</h4>
-              <p className="mb-4 text-sm text-white/70">{project.description}</p>
+              <p className="mb-4 text-sm text-[var(--color-text-caption)]">{project.description}</p>
               <div className="mb-5 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
-                  <span key={tech} className="rounded-full bg-white/10 px-3 py-1 text-xs text-soft-cyan">
+                  <span key={tech} className="rounded-full bg-[var(--surface-glass-mid)] px-3 py-1 text-xs text-[var(--color-accent)]">
                     {tech}
                   </span>
                 ))}
@@ -187,15 +194,15 @@ function Contact() {
       variants={sectionVariant}
     >
       <GlassCard className="p-8 md:p-10">
-        <h3 className="mb-4 text-3xl font-bold">Let&apos;s Build Something Great</h3>
-        <p className="mb-8 text-white/70">Open to creative collaborations, product builds, and ambitious ideas.</p>
+        <h3 className="text-heading mb-4">Let&apos;s Build Something Great</h3>
+        <p className="text-body mb-8">Open to creative collaborations, product builds, and ambitious ideas.</p>
         <form className="space-y-4">
           <input className="glass-input" placeholder="Name" type="text" />
           <input className="glass-input" placeholder="Email" type="email" />
           <textarea className="glass-input min-h-32" placeholder="Message" />
           <button className="btn-primary w-full">Send Message</button>
         </form>
-        <div className="mt-6 flex gap-4 text-white/70">
+        <div className="mt-6 flex gap-4 text-[var(--color-text-caption)]">
           <span className="social-dot">in</span>
           <span className="social-dot">gh</span>
           <span className="social-dot">𝕏</span>
@@ -208,9 +215,9 @@ function Contact() {
 function BackgroundFx() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-cyan-400/20 blur-[120px]" />
-      <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-indigo-500/20 blur-[130px]" />
-      <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-blue-500/20 blur-[120px]" />
+      <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-[var(--color-blob-cyan)] blur-[120px]" />
+      <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-[var(--color-blob-indigo)] blur-[130px]" />
+      <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-[var(--color-blob-blue)] blur-[120px]" />
       {Array.from({ length: 22 }).map((_, i) => (
         <span
           key={i}
@@ -218,7 +225,7 @@ function BackgroundFx() {
           style={{
             left: `${(i * 17) % 100}%`,
             animationDelay: `${i * 0.9}s`,
-            animationDuration: `${14 + (i % 8)}s`,
+            animationDuration: `${motionTokens.particleBaseDuration + (i % 8)}s`,
           }}
         />
       ))}

@@ -1,3 +1,5 @@
+@import './tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,27 +9,74 @@ html {
 }
 
 body {
-  @apply m-0 bg-gradient-to-br from-[#040b22] via-[#06173d] to-[#08102b] font-sans text-white antialiased;
+  @apply m-0 antialiased;
+  font-family: var(--font-family-sans);
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 10% 15%, rgba(61, 157, 244, 0.16), transparent 45%),
+    radial-gradient(circle at 80% 25%, rgba(56, 189, 248, 0.14), transparent 42%),
+    linear-gradient(135deg, var(--color-bg-gradient-start), var(--color-bg-gradient-mid), var(--color-bg-gradient-end));
 }
 
 .glass-card {
-  @apply rounded-3xl border border-white/15 bg-white/[0.08] shadow-glow backdrop-blur-2xl;
+  @apply border;
+  border-radius: var(--radius-2xl);
+  border-color: var(--color-border-hairline);
+  background: linear-gradient(150deg, var(--surface-glass-high), var(--surface-glass-low));
+  box-shadow: var(--shadow-layered);
+  backdrop-filter: blur(var(--blur-high));
 }
 
 .btn-primary {
-  @apply rounded-2xl border border-cyan-300/40 bg-gradient-to-r from-cyan-300/30 to-blue-400/30 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:shadow-glow;
+  @apply px-6 py-3 text-white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-strong);
+  background: linear-gradient(110deg, rgba(125, 211, 252, 0.34), rgba(37, 99, 235, 0.3));
+  font-weight: var(--font-weight-semibold);
+  transition: transform var(--motion-duration-base) var(--motion-ease-standard), box-shadow var(--motion-duration-base) var(--motion-ease-standard);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.015);
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-secondary {
-  @apply rounded-2xl border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white/90 transition hover:bg-white/20;
+  @apply px-6 py-3;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-hairline);
+  background: var(--surface-glass-mid);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
+  transition: background var(--motion-duration-base) var(--motion-ease-standard);
 }
 
+.btn-secondary:hover { background: var(--surface-glass-high); }
+
 .glass-input {
-  @apply w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 outline-none transition focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/20;
+  @apply w-full px-4 py-3 outline-none;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-hairline);
+  background: var(--surface-glass-mid);
+  color: var(--color-text-primary);
+  transition: border-color var(--motion-duration-fast) var(--motion-ease-standard), box-shadow var(--motion-duration-fast) var(--motion-ease-standard);
+}
+
+.glass-input::placeholder { color: var(--color-text-caption); }
+
+.glass-input:focus {
+  border-color: var(--color-border-strong);
+  box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.2);
 }
 
 .social-dot {
-  @apply rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold backdrop-blur-md;
+  @apply px-3 py-2;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-hairline);
+  background: var(--surface-glass-mid);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  backdrop-filter: blur(var(--blur-low));
 }
 
 .particle {
@@ -42,8 +91,31 @@ body {
 }
 
 .hero-bg {
-  background-image: linear-gradient(rgba(3, 12, 36, 0.15), rgba(3, 12, 36, 0.15)), url('/blue-sky.svg');
+  background-image: linear-gradient(rgba(3, 12, 36, 0.28), rgba(3, 12, 36, 0.2)), url('/blue-sky.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: var(--radius-2xl);
 }
+
+.section-shell {
+  padding-inline: var(--section-padding-x);
+  padding-block: var(--section-padding-y);
+}
+
+.text-display {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-extrabold);
+}
+
+.text-heading {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h3);
+  line-height: 1.25;
+  font-weight: var(--font-weight-bold);
+}
+
+.text-body { font-size: var(--font-size-body); line-height: var(--line-height-normal); color: var(--color-text-secondary); }
+.text-caption { font-size: var(--font-size-caption); line-height: var(--line-height-relaxed); color: var(--color-text-caption); }
