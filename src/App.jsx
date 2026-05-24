@@ -136,6 +136,7 @@ export function App() {
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 8);
@@ -147,6 +148,15 @@ function Navbar() {
   useEffect(() => {
     const currentTheme = document.documentElement.dataset.theme;
     setIsDarkMode(currentTheme === 'dark');
+  }, []);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
+    };
+
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   const toggleTheme = () => {
@@ -177,16 +187,50 @@ function Navbar() {
           ))}
         </ul>
 
-        <button
-          type="button"
-          aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          title={isDarkMode ? 'Light mode' : 'Dark mode'}
-          className="nav-menu-btn"
-          onClick={toggleTheme}
-        >
-          <span className="nav-theme-icon" aria-hidden="true">{isDarkMode ? '☀️' : '🌙'}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
+            className="nav-menu-btn md:hidden"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          >
+            <span className="nav-theme-icon" aria-hidden="true">{isMobileMenuOpen ? '✕' : '☰'}</span>
+          </button>
+
+          <button
+            type="button"
+            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={isDarkMode ? 'Light mode' : 'Dark mode'}
+            className="nav-menu-btn"
+            onClick={toggleTheme}
+          >
+            <span className="nav-theme-icon" aria-hidden="true">{isDarkMode ? '☀️' : '🌙'}</span>
+          </button>
+        </div>
       </motion.nav>
+
+      <motion.div
+        id="mobile-navigation"
+        initial={false}
+        animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : -6, height: isMobileMenuOpen ? 'auto' : 0 }}
+        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+        className="mx-auto w-[92%] overflow-hidden px-3 pb-2 md:hidden"
+      >
+        <div className="rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--surface-glass-mid)] p-2 backdrop-blur-xl">
+          {navLinks.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="block rounded-xl px-4 py-2 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--surface-glass-low)] hover:text-[#3B82F6]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      </motion.div>
     </GlassNav>
   );
 }
