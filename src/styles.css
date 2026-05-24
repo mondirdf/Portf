@@ -40,7 +40,7 @@ body {
 }
 
 .glass-panel--hero { backdrop-filter: blur(var(--blur-strong)); }
-.glass-panel--flat { backdrop-filter: blur(var(--blur-low)); background: rgba(255,255,255,0.06); }
+.glass-panel--flat { backdrop-filter: blur(var(--blur-low)); background: var(--surface-flat); }
 
 .glass-panel::before,
 .glass-button::before,
@@ -83,7 +83,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: rgba(9, 25, 54, 0.22);
+  background: var(--surface-modal-tint);
   pointer-events: none;
 }
 
@@ -91,7 +91,7 @@ body {
   position: relative;
   border-radius: inherit;
   padding: 2rem;
-  background: linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+  background: linear-gradient(145deg, var(--surface-modal-content-start), var(--surface-modal-content-end));
 }
 
 .glass-button {
@@ -103,7 +103,7 @@ body {
   transition: transform var(--motion-duration-micro) var(--motion-ease-natural), box-shadow var(--motion-duration-micro) var(--motion-ease-natural), opacity var(--motion-duration-micro) var(--motion-ease-natural);
 }
 
-.glass-button--primary { color: #fff; background: linear-gradient(110deg, rgba(125, 211, 252, 0.34), rgba(37, 99, 235, 0.3)); }
+.glass-button--primary { color: var(--color-button-primary-text); background: linear-gradient(110deg, var(--surface-button-primary-start), var(--surface-button-primary-end)); }
 .glass-button--secondary { color: var(--color-text-secondary); background: var(--surface-glass-mid); }
 .glass-button:hover { transform: translate3d(0, -2px, 0); box-shadow: var(--shadow-glow); }
 
@@ -113,7 +113,7 @@ body {
 .glass-input::placeholder { color: var(--color-text-caption); }
 .social-dot { @apply px-3 py-2; border-radius: var(--radius-md); border: 1px solid var(--color-border-hairline); background: var(--surface-glass-mid); font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); backdrop-filter: blur(var(--blur-low)); }
 
-.hero-bg { background-image: linear-gradient(rgba(3, 12, 36, 0.28), rgba(3, 12, 36, 0.2)), url('/blue-sky.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: var(--radius-2xl); }
+.hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/blue-sky.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: var(--radius-2xl); }
 
 .motion-enter-fade-up,.motion-enter-scale-in,.motion-enter-slide,.motion-section-transition,.motion-hover-lift,.motion-hover-glow,.motion-hover-parallax { will-change: transform, opacity; }
 .motion-section-transition { transition: transform var(--motion-duration-section) var(--motion-ease-natural), opacity var(--motion-duration-section) var(--motion-ease-natural); }
