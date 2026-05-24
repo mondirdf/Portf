@@ -32,18 +32,27 @@ const projects = [
 ];
 
 const motionTokens = {
-  sectionDuration: 0.72,
-  hoverDuration: 0.24,
+  microDuration: 0.2,
+  sectionDuration: 0.42,
   particleBaseDuration: 14,
-  sectionEase: [0.22, 1, 0.36, 1],
+  easeNatural: [0.22, 1, 0.36, 1],
 };
 
-const sectionVariant = {
-  hidden: { opacity: 0, y: 50 },
+const sectionFadeUp = {
+  hidden: { opacity: 0, transform: 'translate3d(0, 28px, 0)' },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: motionTokens.sectionDuration, ease: motionTokens.sectionEase },
+    transform: 'translate3d(0, 0, 0)',
+    transition: { duration: motionTokens.sectionDuration, ease: motionTokens.easeNatural },
+  },
+};
+
+const sectionSlideIn = {
+  hidden: { opacity: 0, transform: 'translate3d(22px, 0, 0)' },
+  visible: {
+    opacity: 1,
+    transform: 'translate3d(0, 0, 0)',
+    transition: { duration: motionTokens.sectionDuration, ease: motionTokens.easeNatural },
   },
 };
 
@@ -75,7 +84,7 @@ function Navbar() {
         <ul className="hidden gap-6 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-text-secondary)] md:flex">
           {navLinks.map((item) => (
             <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="transition hover:text-[var(--color-accent)]">
+              <a href={`#${item.toLowerCase()}`} className="motion-hover-lift transition-colors hover:text-[var(--color-accent)]">
                 {item}
               </a>
             </li>
@@ -88,17 +97,8 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section
-      id="home"
-      className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center"
-    >
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={sectionVariant}
-        className="w-full text-center"
-      >
+    <section id="home" className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center motion-section-transition">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionFadeUp} className="w-full text-center motion-enter-fade-up">
         <h1 className="text-display text-[var(--color-warn)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
           Building intelligent digital experiences.
         </h1>
@@ -110,17 +110,9 @@ function Hero() {
   );
 }
 
-
 function About() {
   return (
-    <motion.section
-      id="about"
-      className="section-shell mx-auto max-w-6xl"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={sectionVariant}
-    >
+    <motion.section id="about" className="section-shell motion-section-transition mx-auto max-w-6xl" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionSlideIn}>
       <h3 className="text-heading mb-6">About Me</h3>
       <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
         <GlassCard className="p-8">
@@ -129,7 +121,7 @@ function About() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {skills.map((skill) => (
-              <span key={skill} className="rounded-full border border-[var(--color-border-hairline)] bg-[var(--surface-glass-low)] px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">
+              <span key={skill} className="motion-hover-glow rounded-full border border-[var(--color-border-hairline)] bg-[var(--surface-glass-low)] px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">
                 {skill}
               </span>
             ))}
@@ -137,7 +129,7 @@ function About() {
         </GlassCard>
         <div className="grid gap-4">
           {stats.map((stat) => (
-            <GlassCard key={stat.label} className="p-6">
+            <GlassCard key={stat.label} className="motion-enter-scale-in p-6">
               <p className="text-3xl font-bold tracking-[var(--tracking-heading)] text-[var(--color-accent)]">{stat.value}</p>
               <p className="text-caption uppercase tracking-[var(--tracking-button)]">{stat.label}</p>
             </GlassCard>
@@ -150,18 +142,11 @@ function About() {
 
 function Projects() {
   return (
-    <motion.section
-      id="projects"
-      className="section-shell mx-auto max-w-6xl"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      variants={sectionVariant}
-    >
+    <motion.section id="projects" className="section-shell motion-section-transition mx-auto max-w-6xl" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={sectionFadeUp}>
       <h3 className="text-heading mb-10">Featured Projects</h3>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          <motion.article key={project.name} whileHover={{ scale: 1.03, y: -6 }} transition={{ duration: motionTokens.hoverDuration, ease: motionTokens.sectionEase }}>
+          <motion.article key={project.name} whileHover={{ transform: 'translate3d(0,-6px,0) scale(1.02)' }} transition={{ duration: motionTokens.microDuration, ease: motionTokens.easeNatural }} className="motion-hover-lift motion-hover-parallax">
             <GlassCard className="h-full p-5">
               <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-[var(--color-border-hairline)] bg-gradient-to-br from-[rgba(125,211,252,0.2)] to-[rgba(99,102,241,0.2)] text-sm text-[var(--color-text-secondary)]">
                 {project.preview}
@@ -176,8 +161,8 @@ function Projects() {
                 ))}
               </div>
               <div className="flex gap-3">
-                <button className="btn-secondary w-full text-sm">Live Demo</button>
-                <button className="btn-primary w-full text-sm">GitHub</button>
+                <button className="btn-secondary motion-button-feedback w-full text-sm">Live Demo</button>
+                <button className="btn-primary motion-button-feedback w-full text-sm">GitHub</button>
               </div>
             </GlassCard>
           </motion.article>
@@ -189,27 +174,20 @@ function Projects() {
 
 function Contact() {
   return (
-    <motion.section
-      id="contact"
-      className="mx-auto max-w-4xl px-6 py-20"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={sectionVariant}
-    >
-      <GlassCard className="p-8 md:p-10">
+    <motion.section id="contact" className="motion-section-transition mx-auto max-w-4xl px-6 py-20" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionFadeUp}>
+      <GlassCard className="motion-enter-slide p-8 md:p-10">
         <h3 className="text-heading mb-4">Let&apos;s Build Something Great</h3>
         <p className="text-body text-measure mb-8">Open to creative collaborations, product builds, and ambitious ideas.</p>
         <form className="space-y-4">
           <input className="glass-input" placeholder="Name" type="text" />
           <input className="glass-input" placeholder="Email" type="email" />
           <textarea className="glass-input min-h-32" placeholder="Message" />
-          <button className="btn-primary w-full">Send Message</button>
+          <button className="btn-primary motion-button-feedback w-full">Send Message</button>
         </form>
         <div className="mt-6 flex gap-4 text-[var(--color-text-caption)]">
-          <span className="social-dot">in</span>
-          <span className="social-dot">gh</span>
-          <span className="social-dot">𝕏</span>
+          <span className="social-dot motion-hover-glow">in</span>
+          <span className="social-dot motion-hover-glow">gh</span>
+          <span className="social-dot motion-hover-glow">𝕏</span>
         </div>
       </GlassCard>
     </motion.section>

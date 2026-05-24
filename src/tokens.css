@@ -69,11 +69,10 @@
   --section-padding-x: clamp(1.25rem, 4vw, 2rem);
 
   /* Motion */
-  --motion-duration-fast: 180ms;
-  --motion-duration-base: 260ms;
-  --motion-duration-slow: 420ms;
+  --motion-duration-micro: 200ms;
+  --motion-duration-section: 420ms;
   --motion-duration-float: 14000ms;
-  --motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-natural: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
 
   /* Blur + shadow */
