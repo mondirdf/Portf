@@ -141,9 +141,9 @@ body {
 
 .glass-nav--scrolled {
   margin-top: 0.35rem;
-  border-color: rgba(255, 255, 255, 0.48);
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1), 0 0 22px rgba(59, 130, 246, 0.12);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.24), 0 0 22px rgba(59, 130, 246, 0.2);
   backdrop-filter: blur(20px);
   border-radius: 9999px;
 }
@@ -155,8 +155,8 @@ body {
   width: 2.65rem;
   height: 2.65rem;
   border-radius: 9999px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(16px);
   transition: box-shadow var(--motion-duration-micro) var(--motion-ease-natural), border-color var(--motion-duration-micro) var(--motion-ease-natural), transform var(--motion-duration-micro) var(--motion-ease-natural);
 }
@@ -174,7 +174,7 @@ body {
   width: 1rem;
   height: 2px;
   border-radius: 9999px;
-  background: rgba(30, 41, 59, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   content: '';
 }
 
@@ -220,56 +220,9 @@ body {
 .glass-input::placeholder { color: var(--color-text-caption); }
 .social-dot { @apply px-3 py-2; border-radius: var(--radius-md); border: 1px solid var(--color-border-hairline); background: var(--surface-glass-mid); font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); backdrop-filter: blur(var(--blur-low)); }
 
-.hero-bg {
-  background-image: url('/blue-sky.svg');
-  background-size: cover;
-  background-position: center 62%;
-  background-repeat: no-repeat;
-}
+.hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/blue-sky.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: var(--radius-2xl); }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.45));
-}
-
-.hero-lights {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 14% 22%, rgba(255, 255, 255, 0.28), transparent 42%),
-    radial-gradient(circle at 85% 78%, rgba(147, 197, 253, 0.18), transparent 40%);
-  filter: blur(2px);
-}
-
-.hero-badge {
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  background: rgba(255, 255, 255, 0.5);
-  color: #334155;
-  backdrop-filter: blur(16px);
-  padding: 0.55rem 1rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.hero-cta-primary {
-  border-radius: 9999px;
-  background: linear-gradient(120deg, rgba(37, 99, 235, 0.95), rgba(59, 130, 246, 0.85));
-  box-shadow: 0 14px 35px rgba(59, 130, 246, 0.33), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  color: #eff6ff;
-}
-
-.hero-cta-secondary {
-  border-radius: 9999px;
-  border-color: rgba(148, 163, 184, 0.5);
-  background: rgba(255, 255, 255, 0.3);
-  color: #1e293b;
-  backdrop-filter: blur(18px);
-}
+:root[data-theme='dark'] .hero-bg { background-image: linear-gradient(var(--surface-hero-overlay-start), var(--surface-hero-overlay-end)), url('/night-sky-stars.svg'); }
 
 .motion-enter-fade-up,.motion-enter-scale-in,.motion-enter-slide,.motion-section-transition,.motion-hover-lift,.motion-hover-glow,.motion-hover-parallax { will-change: transform, opacity; }
 .motion-section-transition { transition: transform var(--motion-duration-section) var(--motion-ease-natural), opacity var(--motion-duration-section) var(--motion-ease-natural); }

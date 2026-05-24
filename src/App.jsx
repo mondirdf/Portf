@@ -130,12 +130,12 @@ function Navbar() {
         transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto flex w-[88%] max-w-6xl items-center justify-between px-4 py-2.5 md:w-[90%] md:px-6 md:py-3"
       >
-        <a href="#home" className="text-xl font-extrabold tracking-[0.08em] text-[#1d4ed8]">DF</a>
+        <a href="#home" className="text-xl font-extrabold tracking-[0.08em] text-[#3B82F6]">DF</a>
 
-        <ul className="hidden gap-6 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-slate-700 md:flex">
+        <ul className="hidden gap-6 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-text-secondary)] md:flex">
           {navLinks.map((item) => (
             <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="motion-hover-lift transition-colors hover:text-[#1d4ed8]">
+              <a href={`#${item.toLowerCase()}`} className="motion-hover-lift transition-colors hover:text-[#3B82F6]">
                 {item}
               </a>
             </li>
@@ -156,25 +156,11 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="home" className="hero-bg relative min-h-[100svh] overflow-hidden motion-section-transition">
-      <div className="hero-overlay" aria-hidden="true" />
-      <div className="hero-lights" aria-hidden="true" />
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={sectionFadeUp}
-        className="section-shell relative z-10 mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col items-center justify-center text-center motion-enter-fade-up"
-      >
-        <span className="hero-badge mb-6">Available for selected projects</span>
-        <h1 className="text-display text-[var(--color-hero-heading)]">Building intelligent digital experiences.</h1>
-        <p className="mt-5 max-w-2xl text-base text-slate-700 md:text-lg">
-          Designing calm, high-performance products with modern engineering and a refined visual language.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <GlassButton className="hero-cta-primary">Start a Project</GlassButton>
-          <GlassButton variant="secondary" className="hero-cta-secondary">View Work</GlassButton>
-        </div>
+    <section id="home" className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center motion-section-transition">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionFadeUp} className="w-full text-center motion-enter-fade-up">
+        <h1 className="text-display text-[var(--color-hero-heading)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
+          Building intelligent digital experiences.
+        </h1>
       </motion.div>
     </section>
   );
