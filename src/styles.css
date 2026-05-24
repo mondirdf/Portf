@@ -54,6 +54,15 @@ body {
     var(--shadow-glass-dark);
 }
 
+.glass-panel {
+  transition: border-color var(--motion-duration-micro) var(--motion-ease-natural), box-shadow var(--motion-duration-micro) var(--motion-ease-natural);
+}
+
+.glass-panel:hover,
+.glass-panel:focus-within {
+  border-color: color-mix(in srgb, var(--color-border-strong) 70%, var(--color-liquid-border-strong));
+}
+
 .glass-panel--liquid.glass-panel--liquid-card .text-card-title { color: var(--color-text-primary); }
 .glass-panel--liquid.glass-panel--liquid-card .text-caption { color: var(--color-text-secondary); }
 .glass-panel--liquid.glass-panel--liquid-card span {
@@ -73,6 +82,12 @@ body {
   background: linear-gradient(165deg, var(--color-tint-soft), transparent 65%);
 }
 
+.glass-panel--liquid::before {
+  background:
+    linear-gradient(165deg, var(--color-tint-soft), transparent 65%),
+    linear-gradient(128deg, transparent 28%, color-mix(in srgb, var(--color-liquid-sheen) 82%, transparent) 48%, transparent 64%);
+}
+
 .glass-panel::after,
 .glass-button::after,
 .glass-nav::after,
@@ -83,6 +98,16 @@ body {
   border-radius: inherit;
   pointer-events: none;
   border-top: 1px solid var(--color-highlight-inner);
+}
+
+.glass-panel--liquid::after {
+  border-top-color: color-mix(in srgb, var(--color-highlight-inner) 84%, transparent);
+  background-image:
+    radial-gradient(circle at 20% 24%, color-mix(in srgb, var(--color-highlight-inner) 92%, white) 0.6px, transparent 0.9px),
+    radial-gradient(circle at 74% 68%, color-mix(in srgb, var(--color-highlight-inner) 82%, white) 0.5px, transparent 0.85px);
+  background-size: 26px 26px, 32px 32px;
+  background-position: 0 0, 9px 13px;
+  opacity: var(--opacity-liquid-noise);
 }
 
 .glass-nav {

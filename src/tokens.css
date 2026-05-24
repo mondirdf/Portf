@@ -98,6 +98,9 @@
   --blur-high: 30px;
   --color-tint-soft: rgba(165, 215, 255, 0.16);
   --color-highlight-inner: rgba(255, 255, 255, 0.32);
+  --color-liquid-sheen: rgba(255, 255, 255, 0.24);
+  --opacity-liquid-noise: 0.045;
+  --color-liquid-border-strong: rgba(255, 255, 255, 0.38);
   --shadow-soft: 0 10px 30px rgba(8, 20, 46, 0.45);
   --shadow-layered: 0 10px 28px rgba(10, 22, 46, 0.38), 0 28px 70px rgba(2, 8, 22, 0.5);
   --shadow-glass-dark: 0 10px 30px rgba(3, 10, 28, 0.52), 0 26px 70px rgba(2, 8, 22, 0.52);
@@ -145,4 +148,7 @@
   --surface-hero-overlay-end: rgba(3, 12, 36, 0.2);
   --surface-nav-glass: rgba(6, 19, 45, 0.64);
   --color-nav-border: rgba(125, 211, 252, 0.26);
+  --color-liquid-sheen: rgba(180, 226, 255, 0.2);
+  --opacity-liquid-noise: 0.06;
+  --color-liquid-border-strong: rgba(170, 231, 255, 0.42);
 }
