@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const navLinks = ['Home', 'About', 'Projects', 'Contact'];
+const navLinks = ['Home', 'About', 'Projects', 'Team', 'Contact'];
 
 const skills = ['React', 'TypeScript', 'Tailwind', 'Node.js', 'Framer Motion', 'UI/UX'];
 
@@ -29,6 +29,43 @@ const projects = [
     description: 'A collaborative productivity suite for distributed teams with shared docs and workflow automation.',
     stack: ['React', 'Node', 'PostgreSQL'],
     preview: 'Team Workspace',
+  },
+];
+
+
+const teamMembers = [
+  {
+    name: 'Alex Rivera',
+    role: 'Lead Product Engineer',
+    bio: 'Shapes product direction and delivers end-to-end web experiences with performance and accessibility at the core.',
+    skills: ['React', 'TypeScript', 'System Design'],
+    links: {
+      linkedin: '#',
+      github: '#',
+      portfolio: '#',
+    },
+  },
+  {
+    name: 'Maya Chen',
+    role: 'UI Motion Designer',
+    bio: 'Designs fluid interfaces and interaction systems that make complex product flows feel effortless.',
+    skills: ['Figma', 'Framer Motion', 'Design Systems'],
+    links: {
+      linkedin: '#',
+      dribbble: '#',
+      portfolio: '#',
+    },
+  },
+  {
+    name: 'Noah Patel',
+    role: 'Backend & Data Engineer',
+    bio: 'Builds resilient APIs, analytics pipelines, and deployment workflows for high-growth digital products.',
+    skills: ['Node.js', 'PostgreSQL', 'Cloud Infra'],
+    links: {
+      linkedin: '#',
+      github: '#',
+      website: '#',
+    },
   },
 ];
 
@@ -103,6 +140,7 @@ export function App() {
         <Hero />
         <About />
         <Projects />
+        <Team />
         <Contact />
       </main>
       <Footer />
@@ -197,6 +235,40 @@ function Projects() {
               <div className="flex gap-3">
                 <GlassButton variant="secondary" className="w-full text-sm">Live Demo</GlassButton>
                 <GlassButton className="w-full text-sm">GitHub</GlassButton>
+              </div>
+            </GlassPanel>
+          </motion.article>
+        ))}
+      </div>
+    </motion.section>
+  );
+}
+
+
+function Team() {
+  return (
+    <motion.section id="team" className="section-shell motion-section-transition mx-auto max-w-6xl" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={sectionFadeUp}>
+      <h3 className="text-heading mb-10">Team</h3>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {teamMembers.map((member) => (
+          <motion.article key={member.name} whileHover={{ transform: 'translate3d(0,-6px,0) scale(1.02)' }} transition={{ duration: motionTokens.microDuration, ease: motionTokens.easeNatural }} className="motion-hover-lift motion-hover-parallax">
+            <GlassPanel className="team-card glass-panel--liquid-card h-full p-6" emphasis="liquid">
+              <p className="text-caption mb-2 uppercase tracking-[var(--tracking-button)]">{member.role}</p>
+              <h4 className="text-card-title mb-3">{member.name}</h4>
+              <p className="text-caption text-measure mb-5">{member.bio}</p>
+              <div className="mb-5 flex flex-wrap gap-2">
+                {member.skills.map((skill) => (
+                  <span key={skill} className="rounded-full px-3 py-1 text-xs font-medium uppercase tracking-[var(--tracking-button)]">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <div className="team-card__links flex flex-wrap gap-2">
+                {Object.entries(member.links).map(([platform, href]) => (
+                  <a key={platform} href={href} className="motion-hover-glow rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[var(--tracking-button)]">
+                    {platform}
+                  </a>
+                ))}
               </div>
             </GlassPanel>
           </motion.article>
