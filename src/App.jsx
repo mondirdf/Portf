@@ -168,101 +168,13 @@ function Navbar() {
   );
 }
 
-
-function LiquidGlassEffect({ children, className = '', style = {}, href, target = '_blank' }) {
-  const glassStyle = {
-    boxShadow: '0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1)',
-    transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 2.2)',
-    ...style,
-  };
-
-  const content = (
-    <div
-      className={`relative flex overflow-hidden font-semibold text-black transition-all duration-700 ${className}`}
-      style={glassStyle}
-    >
-      <div className="absolute inset-0 z-0 overflow-hidden rounded-inherit rounded-3xl" style={{ backdropFilter: 'blur(3px)', filter: 'url(#glass-distortion)', isolation: 'isolate' }} />
-      <div className="absolute inset-0 z-10 rounded-inherit" style={{ background: 'rgba(255, 255, 255, 0.25)' }} />
-      <div className="absolute inset-0 z-20 overflow-hidden rounded-inherit rounded-3xl" style={{ boxShadow: 'inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5)' }} />
-      <div className="relative z-30">{children}</div>
-    </div>
-  );
-
-  return href ? <a href={href} target={target} rel="noopener noreferrer" className="block">{content}</a> : content;
-}
-
-function LiquidGlassButton({ children, href }) {
-  return (
-    <LiquidGlassEffect href={href} className="rounded-3xl px-8 py-4 hover:rounded-[2rem] hover:px-9 hover:py-[1.1rem]">
-      <div className="transition-all duration-700 hover:scale-95" style={{ transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 2.2)' }}>
-        {children}
-      </div>
-    </LiquidGlassEffect>
-  );
-}
-
-function LiquidGlassDock({ icons, href }) {
-  return (
-    <LiquidGlassEffect href={href} className="rounded-3xl p-2 hover:rounded-[2rem] hover:p-3">
-      <div className="flex items-center justify-center gap-2 overflow-hidden rounded-3xl px-1 py-0.5">
-        {icons.map((icon) => (
-          <img
-            key={icon.alt}
-            src={icon.src}
-            alt={icon.alt}
-            className="h-12 w-12 cursor-pointer transition-all duration-700 hover:scale-110 md:h-14 md:w-14"
-            style={{ transformOrigin: 'center center', transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 2.2)' }}
-          />
-        ))}
-      </div>
-    </LiquidGlassEffect>
-  );
-}
-
-function LiquidGlassFilter() {
-  return (
-    <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
-      <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
-        <feTurbulence type="fractalNoise" baseFrequency="0.001 0.005" numOctaves="1" seed="17" result="turbulence" />
-        <feComponentTransfer in="turbulence" result="mapped">
-          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
-          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
-          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
-        </feComponentTransfer>
-        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
-        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lightingColor="white" result="specLight">
-          <fePointLight x="-200" y="-200" z="300" />
-        </feSpecularLighting>
-        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
-        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="200" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
-    </svg>
-  );
-}
-
 function Hero() {
   return (
     <section id="home" className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center motion-section-transition">
-      <LiquidGlassFilter />
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionFadeUp} className="w-full text-center motion-enter-fade-up">
         <h1 className="text-display text-[var(--color-hero-heading)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
           Building intelligent digital experiences.
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-body">Now with the liquid glass dock and CTA style you shared.</p>
-        <div className="mt-8 flex flex-col items-center gap-4">
-          <LiquidGlassDock
-            href="https://x.com/notsurajgaud"
-            icons={[
-              { src: 'https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/a13d1acfd046f503f987c1c95af582c8_low_res_Claude.png', alt: 'Claude' },
-              { src: 'https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/9e80c50a5802d3b0a7ec66f3fe4ce348_low_res_Finder.png', alt: 'Finder' },
-              { src: 'https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/c2c4a538c2d42a8dc0927d7d6530d125_low_res_ChatGPT___Liquid_Glass__Default_.png', alt: 'ChatGPT' },
-              { src: 'https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/7c59c945731aecf4f91eb8c2c5f867ce_low_res_Safari.png', alt: 'Safari' },
-            ]}
-          />
-          <LiquidGlassButton href="https://x.com/notsurajgaud">
-            <div className="px-2 text-lg text-white md:text-xl">How can I help you today?</div>
-          </LiquidGlassButton>
-        </div>
       </motion.div>
     </section>
   );
