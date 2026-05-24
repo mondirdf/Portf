@@ -40,3 +40,10 @@ body {
   box-shadow: 0 0 12px rgba(125, 211, 252, 0.45);
   animation: drift linear infinite;
 }
+
+.hero-bg {
+  background-image: linear-gradient(rgba(3, 12, 36, 0.15), rgba(3, 12, 36, 0.15)), url('/blue-sky.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
