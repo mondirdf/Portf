@@ -39,6 +39,8 @@
   --color-button-primary-text: #ffffff;
   --surface-hero-overlay-start: rgba(239, 247, 255, 0.2);
   --surface-hero-overlay-end: rgba(226, 239, 255, 0.28);
+  --surface-nav-glass: rgba(255, 255, 255, 0.78);
+  --color-nav-border: rgba(37, 99, 235, 0.24);
 
   /* Typography */
   --font-family-sans: 'Source Sans 3', 'Inter', 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
@@ -139,4 +141,6 @@
   --color-button-primary-text: #ffffff;
   --surface-hero-overlay-start: rgba(3, 12, 36, 0.28);
   --surface-hero-overlay-end: rgba(3, 12, 36, 0.2);
+  --surface-nav-glass: rgba(6, 19, 45, 0.64);
+  --color-nav-border: rgba(125, 211, 252, 0.26);
 }
