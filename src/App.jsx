@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 
-const navLinks = ['Home', 'About', 'Projects', 'Contact'];
-
 const skills = ['React', 'TypeScript', 'Tailwind', 'Node.js', 'Framer Motion', 'UI/UX'];
 
 const stats = [
@@ -74,9 +72,6 @@ function GlassButton({ className = '', variant = 'primary', children, ...props }
   );
 }
 
-function GlassNav({ className = '', children }) {
-  return <header className={`glass-nav ${className}`}>{children}</header>;
-}
 
 function GlassModal({ className = '', title = 'Usage Rules', children }) {
   return (
@@ -91,7 +86,6 @@ export function App() {
   return (
     <div className="relative min-h-screen overflow-x-hidden text-[var(--color-text-primary)]">
       <BackgroundFx />
-      <Navbar />
       <main className="relative z-10">
         <Hero />
         <About />
@@ -103,35 +97,13 @@ export function App() {
   );
 }
 
-function Navbar() {
-  return (
-    <GlassNav>
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-bold tracking-[var(--tracking-heading-wide)] text-[var(--color-accent)]">ALEX DEV</span>
-        <ul className="hidden gap-6 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-text-secondary)] md:flex">
-          {navLinks.map((item) => (
-            <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="motion-hover-lift transition-colors hover:text-[var(--color-accent)]">
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </GlassNav>
-  );
-}
-
 function Hero() {
   return (
     <section id="home" className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center motion-section-transition">
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionFadeUp} className="w-full text-center motion-enter-fade-up">
-        <h1 className="text-display text-[var(--color-warn)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
+        <h1 className="text-[var(--color-warn)] text-6xl font-black uppercase leading-[1.05] tracking-[var(--tracking-heading-wide)] drop-shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:text-8xl lg:text-9xl">
           Building intelligent digital experiences.
         </h1>
-        <p className="text-body text-measure mx-auto mt-6">
-          I design and engineer performant products with clean systems, accessible UI, and expressive motion that scale beautifully from mobile to desktop.
-        </p>
       </motion.div>
     </section>
   );
