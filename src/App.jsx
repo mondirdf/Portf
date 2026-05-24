@@ -139,9 +139,6 @@ function Hero() {
         <h1 className="text-display text-[var(--color-hero-heading)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
           Building intelligent digital experiences.
         </h1>
-        <p className="text-body text-measure mx-auto mt-6">
-          I design and engineer performant products with clean systems, accessible UI, and expressive motion that scale beautifully from mobile to desktop.
-        </p>
       </motion.div>
     </section>
   );
