@@ -1,0 +1,203 @@
+{
+  "generatedAt": "2026-05-24T11:43:59.711Z",
+  "artDirectionRef": "docs/image-art-direction.md",
+  "namingConvention": "{useCase}-{variant}-{ratio}-v{version}.{ext}",
+  "formats": [
+    "webp",
+    "jpg"
+  ],
+  "items": [
+    {
+      "useCase": "hero-background",
+      "slug": "stylized-concept",
+      "ratio": "16x9",
+      "size": "1536x864",
+      "prompt": "Use case: stylized-concept\\nAsset type: website hero background\\nPrimary request: abstract futuristic gradient atmosphere with layered geometric light planes and subtle glass depth\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: deep navy and indigo base (#040b22 #081834 #0a1d43) with cyan accents (#7dd3fc #38bdf8)\\nLighting style: soft volumetric glow, controlled bloom, no clipping\\nComposition: wide cinematic framing with 45% negative space for headline text\\nSubject constraints: no noisy background, no clutter, no text, no logos, no watermark\\nAspect ratio: 16x9",
+      "outputs": {
+        "webp": "hero-background-core-16x9-v1.webp",
+        "jpg": "hero-background-core-16x9-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "hero-background",
+      "slug": "stylized-concept",
+      "ratio": "4x3",
+      "size": "1408x1056",
+      "prompt": "Use case: stylized-concept\\nAsset type: website hero background\\nPrimary request: abstract futuristic gradient atmosphere with layered geometric light planes and subtle glass depth\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: deep navy and indigo base (#040b22 #081834 #0a1d43) with cyan accents (#7dd3fc #38bdf8)\\nLighting style: soft volumetric glow, controlled bloom, no clipping\\nComposition: wide cinematic framing with 45% negative space for headline text\\nSubject constraints: no noisy background, no clutter, no text, no logos, no watermark\\nAspect ratio: 4x3",
+      "outputs": {
+        "webp": "hero-background-core-4x3-v1.webp",
+        "jpg": "hero-background-core-4x3-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "hero-background",
+      "slug": "stylized-concept",
+      "ratio": "1x1",
+      "size": "1024x1024",
+      "prompt": "Use case: stylized-concept\\nAsset type: website hero background\\nPrimary request: abstract futuristic gradient atmosphere with layered geometric light planes and subtle glass depth\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: deep navy and indigo base (#040b22 #081834 #0a1d43) with cyan accents (#7dd3fc #38bdf8)\\nLighting style: soft volumetric glow, controlled bloom, no clipping\\nComposition: wide cinematic framing with 45% negative space for headline text\\nSubject constraints: no noisy background, no clutter, no text, no logos, no watermark\\nAspect ratio: 1x1",
+      "outputs": {
+        "webp": "hero-background-core-1x1-v1.webp",
+        "jpg": "hero-background-core-1x1-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "hero-background",
+      "slug": "stylized-concept",
+      "ratio": "9x16",
+      "size": "1080x1920",
+      "prompt": "Use case: stylized-concept\\nAsset type: website hero background\\nPrimary request: abstract futuristic gradient atmosphere with layered geometric light planes and subtle glass depth\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: deep navy and indigo base (#040b22 #081834 #0a1d43) with cyan accents (#7dd3fc #38bdf8)\\nLighting style: soft volumetric glow, controlled bloom, no clipping\\nComposition: wide cinematic framing with 45% negative space for headline text\\nSubject constraints: no noisy background, no clutter, no text, no logos, no watermark\\nAspect ratio: 9x16",
+      "outputs": {
+        "webp": "hero-background-core-9x16-v1.webp",
+        "jpg": "hero-background-core-9x16-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "feature-illustrations",
+      "slug": "illustration-story",
+      "ratio": "16x9",
+      "size": "1536x864",
+      "prompt": "Use case: illustration-story\\nAsset type: feature section illustration\\nPrimary request: minimal 3D-inspired conceptual illustration of product capability (automation, analytics, collaboration), one clear central metaphor\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: dark navy environment with cool cyan/indigo highlights from brand tokens\\nLighting style: studio-like soft key and gentle rim separation\\nComposition: centered subject with simple foreground/background layers and open margins\\nSubject constraints: no noisy background, no over-detailed micro parts, no fake text, no watermark\\nAspect ratio: 16x9",
+      "outputs": {
+        "webp": "feature-illustrations-core-16x9-v1.webp",
+        "jpg": "feature-illustrations-core-16x9-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "feature-illustrations",
+      "slug": "illustration-story",
+      "ratio": "4x3",
+      "size": "1408x1056",
+      "prompt": "Use case: illustration-story\\nAsset type: feature section illustration\\nPrimary request: minimal 3D-inspired conceptual illustration of product capability (automation, analytics, collaboration), one clear central metaphor\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: dark navy environment with cool cyan/indigo highlights from brand tokens\\nLighting style: studio-like soft key and gentle rim separation\\nComposition: centered subject with simple foreground/background layers and open margins\\nSubject constraints: no noisy background, no over-detailed micro parts, no fake text, no watermark\\nAspect ratio: 4x3",
+      "outputs": {
+        "webp": "feature-illustrations-core-4x3-v1.webp",
+        "jpg": "feature-illustrations-core-4x3-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "feature-illustrations",
+      "slug": "illustration-story",
+      "ratio": "1x1",
+      "size": "1024x1024",
+      "prompt": "Use case: illustration-story\\nAsset type: feature section illustration\\nPrimary request: minimal 3D-inspired conceptual illustration of product capability (automation, analytics, collaboration), one clear central metaphor\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: dark navy environment with cool cyan/indigo highlights from brand tokens\\nLighting style: studio-like soft key and gentle rim separation\\nComposition: centered subject with simple foreground/background layers and open margins\\nSubject constraints: no noisy background, no over-detailed micro parts, no fake text, no watermark\\nAspect ratio: 1x1",
+      "outputs": {
+        "webp": "feature-illustrations-core-1x1-v1.webp",
+        "jpg": "feature-illustrations-core-1x1-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "feature-illustrations",
+      "slug": "illustration-story",
+      "ratio": "9x16",
+      "size": "1080x1920",
+      "prompt": "Use case: illustration-story\\nAsset type: feature section illustration\\nPrimary request: minimal 3D-inspired conceptual illustration of product capability (automation, analytics, collaboration), one clear central metaphor\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: dark navy environment with cool cyan/indigo highlights from brand tokens\\nLighting style: studio-like soft key and gentle rim separation\\nComposition: centered subject with simple foreground/background layers and open margins\\nSubject constraints: no noisy background, no over-detailed micro parts, no fake text, no watermark\\nAspect ratio: 9x16",
+      "outputs": {
+        "webp": "feature-illustrations-core-9x16-v1.webp",
+        "jpg": "feature-illustrations-core-9x16-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "testimonial-placeholders",
+      "slug": "stylized-concept",
+      "ratio": "16x9",
+      "size": "1536x864",
+      "prompt": "Use case: stylized-concept\\nAsset type: testimonial/profile placeholder\\nPrimary request: neutral premium portrait placeholder silhouette/avatar bust with smooth gradients and subtle geometric halo\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: monochrome navy-to-cyan progression aligned to token palette\\nLighting style: soft frontal fill with low-intensity edge glow\\nComposition: subject centered with consistent safe padding for circular/rounded crop\\nSubject constraints: no noisy background, no facial detail clutter, no accessories, no watermark, no text\\nAspect ratio: 16x9",
+      "outputs": {
+        "webp": "testimonial-placeholders-core-16x9-v1.webp",
+        "jpg": "testimonial-placeholders-core-16x9-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "testimonial-placeholders",
+      "slug": "stylized-concept",
+      "ratio": "4x3",
+      "size": "1408x1056",
+      "prompt": "Use case: stylized-concept\\nAsset type: testimonial/profile placeholder\\nPrimary request: neutral premium portrait placeholder silhouette/avatar bust with smooth gradients and subtle geometric halo\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: monochrome navy-to-cyan progression aligned to token palette\\nLighting style: soft frontal fill with low-intensity edge glow\\nComposition: subject centered with consistent safe padding for circular/rounded crop\\nSubject constraints: no noisy background, no facial detail clutter, no accessories, no watermark, no text\\nAspect ratio: 4x3",
+      "outputs": {
+        "webp": "testimonial-placeholders-core-4x3-v1.webp",
+        "jpg": "testimonial-placeholders-core-4x3-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "testimonial-placeholders",
+      "slug": "stylized-concept",
+      "ratio": "1x1",
+      "size": "1024x1024",
+      "prompt": "Use case: stylized-concept\\nAsset type: testimonial/profile placeholder\\nPrimary request: neutral premium portrait placeholder silhouette/avatar bust with smooth gradients and subtle geometric halo\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: monochrome navy-to-cyan progression aligned to token palette\\nLighting style: soft frontal fill with low-intensity edge glow\\nComposition: subject centered with consistent safe padding for circular/rounded crop\\nSubject constraints: no noisy background, no facial detail clutter, no accessories, no watermark, no text\\nAspect ratio: 1x1",
+      "outputs": {
+        "webp": "testimonial-placeholders-core-1x1-v1.webp",
+        "jpg": "testimonial-placeholders-core-1x1-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "testimonial-placeholders",
+      "slug": "stylized-concept",
+      "ratio": "9x16",
+      "size": "1080x1920",
+      "prompt": "Use case: stylized-concept\\nAsset type: testimonial/profile placeholder\\nPrimary request: neutral premium portrait placeholder silhouette/avatar bust with smooth gradients and subtle geometric halo\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: monochrome navy-to-cyan progression aligned to token palette\\nLighting style: soft frontal fill with low-intensity edge glow\\nComposition: subject centered with consistent safe padding for circular/rounded crop\\nSubject constraints: no noisy background, no facial detail clutter, no accessories, no watermark, no text\\nAspect ratio: 9x16",
+      "outputs": {
+        "webp": "testimonial-placeholders-core-9x16-v1.webp",
+        "jpg": "testimonial-placeholders-core-9x16-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "blog-thumbnails",
+      "slug": "ads-marketing",
+      "ratio": "16x9",
+      "size": "1536x864",
+      "prompt": "Use case: ads-marketing\\nAsset type: blog thumbnail visual\\nPrimary request: editorial-grade tech concept scene representing strategy, growth, engineering, or design topic with one dominant focal element\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: navy-indigo base with selective cyan highlights and restrained contrast\\nLighting style: directional cinematic soft light, balanced shadows, subtle atmosphere\\nComposition: strong focal object, high readability at small size, reserved negative space for optional title overlay\\nSubject constraints: no noisy background, no tiny clutter, no gibberish text, no watermark\\nAspect ratio: 16x9",
+      "outputs": {
+        "webp": "blog-thumbnails-core-16x9-v1.webp",
+        "jpg": "blog-thumbnails-core-16x9-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "blog-thumbnails",
+      "slug": "ads-marketing",
+      "ratio": "4x3",
+      "size": "1408x1056",
+      "prompt": "Use case: ads-marketing\\nAsset type: blog thumbnail visual\\nPrimary request: editorial-grade tech concept scene representing strategy, growth, engineering, or design topic with one dominant focal element\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: navy-indigo base with selective cyan highlights and restrained contrast\\nLighting style: directional cinematic soft light, balanced shadows, subtle atmosphere\\nComposition: strong focal object, high readability at small size, reserved negative space for optional title overlay\\nSubject constraints: no noisy background, no tiny clutter, no gibberish text, no watermark\\nAspect ratio: 4x3",
+      "outputs": {
+        "webp": "blog-thumbnails-core-4x3-v1.webp",
+        "jpg": "blog-thumbnails-core-4x3-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "blog-thumbnails",
+      "slug": "ads-marketing",
+      "ratio": "1x1",
+      "size": "1024x1024",
+      "prompt": "Use case: ads-marketing\\nAsset type: blog thumbnail visual\\nPrimary request: editorial-grade tech concept scene representing strategy, growth, engineering, or design topic with one dominant focal element\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: navy-indigo base with selective cyan highlights and restrained contrast\\nLighting style: directional cinematic soft light, balanced shadows, subtle atmosphere\\nComposition: strong focal object, high readability at small size, reserved negative space for optional title overlay\\nSubject constraints: no noisy background, no tiny clutter, no gibberish text, no watermark\\nAspect ratio: 1x1",
+      "outputs": {
+        "webp": "blog-thumbnails-core-1x1-v1.webp",
+        "jpg": "blog-thumbnails-core-1x1-v1.jpg"
+      },
+      "status": "pending-generation"
+    },
+    {
+      "useCase": "blog-thumbnails",
+      "slug": "ads-marketing",
+      "ratio": "9x16",
+      "size": "1080x1920",
+      "prompt": "Use case: ads-marketing\\nAsset type: blog thumbnail visual\\nPrimary request: editorial-grade tech concept scene representing strategy, growth, engineering, or design topic with one dominant focal element\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: navy-indigo base with selective cyan highlights and restrained contrast\\nLighting style: directional cinematic soft light, balanced shadows, subtle atmosphere\\nComposition: strong focal object, high readability at small size, reserved negative space for optional title overlay\\nSubject constraints: no noisy background, no tiny clutter, no gibberish text, no watermark\\nAspect ratio: 9x16",
+      "outputs": {
+        "webp": "blog-thumbnails-core-9x16-v1.webp",
+        "jpg": "blog-thumbnails-core-9x16-v1.jpg"
+      },
+      "status": "pending-generation"
+    }
+  ]
+}
