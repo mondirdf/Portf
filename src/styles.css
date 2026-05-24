@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply m-0 bg-gradient-to-br from-[#040b22] via-[#06173d] to-[#08102b] font-sans text-white antialiased;
+}
+
+.glass-card {
+  @apply rounded-3xl border border-white/15 bg-white/[0.08] shadow-glow backdrop-blur-2xl;
+}
+
+.btn-primary {
+  @apply rounded-2xl border border-cyan-300/40 bg-gradient-to-r from-cyan-300/30 to-blue-400/30 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:shadow-glow;
+}
+
+.btn-secondary {
+  @apply rounded-2xl border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white/90 transition hover:bg-white/20;
+}
+
+.glass-input {
+  @apply w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 outline-none transition focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/20;
+}
+
+.social-dot {
+  @apply rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold backdrop-blur-md;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(186, 230, 253, 0.6);
+  box-shadow: 0 0 12px rgba(125, 211, 252, 0.45);
+  animation: drift linear infinite;
+}
