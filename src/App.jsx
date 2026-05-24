@@ -128,7 +128,7 @@ function Navbar() {
           scale: isScrolled ? 0.98 : 1,
         }}
         transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto flex w-[90%] max-w-6xl items-center justify-between px-5 py-3 md:px-6"
+        className="mx-auto flex w-[88%] max-w-6xl items-center justify-between px-4 py-2.5 md:w-[90%] md:px-6 md:py-3"
       >
         <a href="#home" className="text-xl font-extrabold tracking-[0.08em] text-[#3B82F6]">DF</a>
 
