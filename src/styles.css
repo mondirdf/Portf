@@ -113,7 +113,7 @@ body {
 .glass-input::placeholder { color: var(--color-text-caption); }
 .social-dot { @apply px-3 py-2; border-radius: var(--radius-md); border: 1px solid var(--color-border-hairline); background: var(--surface-glass-mid); font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); backdrop-filter: blur(var(--blur-low)); }
 
-.hero-bg { background-image: linear-gradient(rgba(3, 12, 36, 0.28), rgba(3, 12, 36, 0.2)), url('/blue-sky.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: var(--radius-2xl); }
+.hero-bg { background-image: url('/hero-blue-sky.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: var(--radius-2xl); }
 
 .motion-enter-fade-up,.motion-enter-scale-in,.motion-enter-slide,.motion-section-transition,.motion-hover-lift,.motion-hover-glow,.motion-hover-parallax { will-change: transform, opacity; }
 .motion-section-transition { transition: transform var(--motion-duration-section) var(--motion-ease-natural), opacity var(--motion-duration-section) var(--motion-ease-natural); }
