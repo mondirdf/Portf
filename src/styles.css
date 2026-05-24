@@ -140,7 +140,7 @@ body {
 }
 
 .glass-nav--scrolled {
-  margin-top: 0.35rem;
+  margin-top: 0.5rem;
   border-color: rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.24), 0 0 22px rgba(59, 130, 246, 0.2);
@@ -152,8 +152,8 @@ body {
   position: relative;
   display: grid;
   place-items: center;
-  width: 2.65rem;
-  height: 2.65rem;
+  width: 2.9rem;
+  height: 2.9rem;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.1);
@@ -167,20 +167,10 @@ body {
   transform: translate3d(0, -1px, 0);
 }
 
-.nav-menu-icon,
-.nav-menu-icon::before,
-.nav-menu-icon::after {
-  display: block;
-  width: 1rem;
-  height: 2px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.92);
-  content: '';
+.nav-theme-icon {
+  font-size: 1.05rem;
+  line-height: 1;
 }
-
-.nav-menu-icon { position: relative; }
-.nav-menu-icon::before { position: absolute; top: -0.35rem; left: 0; }
-.nav-menu-icon::after { position: absolute; top: 0.35rem; left: 0; }
 
 .glass-modal {
   border-radius: var(--radius-2xl);
