@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const navLinks = ['Home', 'About', 'Projects', 'Contact'];
@@ -88,10 +89,16 @@ function GlassModal({ className = '', title = 'Usage Rules', children }) {
 }
 
 export function App() {
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden text-[var(--color-text-primary)]">
       <BackgroundFx />
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={() => setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'))} />
       <main className="relative z-10">
         <Hero />
         <About />
@@ -103,7 +110,7 @@ export function App() {
   );
 }
 
-function Navbar() {
+function Navbar({ theme, onToggleTheme }) {
   return (
     <GlassNav>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -117,6 +124,9 @@ function Navbar() {
             </li>
           ))}
         </ul>
+        <GlassButton variant="secondary" className="text-xs md:text-sm" onClick={onToggleTheme}>
+          {theme === 'light' ? 'Dark mode' : 'Light mode'}
+        </GlassButton>
       </nav>
     </GlassNav>
   );
@@ -175,7 +185,7 @@ function Projects() {
         {projects.map((project) => (
           <motion.article key={project.name} whileHover={{ transform: 'translate3d(0,-6px,0) scale(1.02)' }} transition={{ duration: motionTokens.microDuration, ease: motionTokens.easeNatural }} className="motion-hover-lift motion-hover-parallax">
             <GlassPanel className="h-full p-5" emphasis="flat">
-              <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-[var(--color-border-hairline)] bg-gradient-to-br from-[rgba(125,211,252,0.2)] to-[rgba(99,102,241,0.2)] text-sm text-[var(--color-text-secondary)]">
+              <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-[var(--color-border-hairline)] bg-gradient-to-br from-[var(--surface-preview-start)] to-[var(--surface-preview-end)] text-sm text-[var(--color-text-secondary)]">
                 {project.preview}
               </div>
               <h4 className="text-card-title mb-2">{project.name}</h4>
@@ -233,7 +243,7 @@ function BackgroundFx() { return <div className="pointer-events-none absolute in
 
 function Footer() {
   return (
-    <footer className="relative z-10 border-t border-[var(--color-border-hairline)] bg-[rgba(4,14,35,0.35)] px-6 py-8">
+    <footer className="relative z-10 border-t border-[var(--color-border-hairline)] bg-[var(--surface-footer)] px-6 py-8">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
         <p className="text-caption">© {new Date().getFullYear()} Alex Dev. Crafted with intention.</p>
         <p className="text-caption uppercase tracking-[var(--tracking-button)]">React · Tailwind · Framer Motion</p>
