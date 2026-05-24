@@ -29,6 +29,38 @@ body {
   backdrop-filter: blur(var(--blur-moderate));
 }
 
+
+.glass-liquid-surface {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.glass-liquid-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  backdrop-filter: blur(3px);
+  filter: url(#glass-distortion);
+  isolation: isolate;
+}
+
+.glass-liquid-surface::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.glass-liquid-surface > * {
+  position: relative;
+  z-index: 2;
+}
+
 .glass-nav--top::before,
 .glass-nav--top::after {
   opacity: 0;
@@ -246,3 +278,37 @@ body {
 .text-caption { font-size: var(--font-size-caption); line-height: var(--line-height-relaxed); color: var(--color-text-caption); }
 .text-measure { max-width: var(--measure-readable); }
 .text-card-title { font-family: var(--font-family-display); font-size: var(--font-size-h4); line-height: 1.3; font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-heading); }
+
+/* Liquid glass texture used by navbar and liquid cards */
+.glass-liquid-surface {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.glass-liquid-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  backdrop-filter: blur(3px);
+  filter: url(#glass-distortion);
+  isolation: isolate;
+  background: transparent;
+}
+
+.glass-liquid-surface::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+  border-top: 0;
+}
+
+.glass-liquid-surface > * {
+  position: relative;
+  z-index: 2;
+}
