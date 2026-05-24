@@ -82,12 +82,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="mx-auto grid min-h-screen max-w-6xl items-center px-6 py-20"
-      style={{
-        backgroundImage: "linear-gradient(rgba(3,12,36,0.2), rgba(3,12,36,0.2)), url('/blue-sky.svg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="hero-bg mx-auto grid min-h-screen max-w-6xl items-center px-6 py-20"
     >
       <motion.div
         initial="hidden"
