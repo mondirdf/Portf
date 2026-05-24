@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "artDirectionRef": "docs/image-art-direction.md",
+  "namingConvention": "{useCase}-{variant}-{ratio}-v{version}.{ext}",
+  "ratios": {
+    "16x9": "1536x864",
+    "4x3": "1408x1056",
+    "1x1": "1024x1024",
+    "9x16": "1080x1920"
+  },
+  "useCases": {
+    "hero-background": {
+      "slug": "stylized-concept",
+      "template": "Use case: stylized-concept\\nAsset type: website hero background\\nPrimary request: abstract futuristic gradient atmosphere with layered geometric light planes and subtle glass depth\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: deep navy and indigo base (#040b22 #081834 #0a1d43) with cyan accents (#7dd3fc #38bdf8)\\nLighting style: soft volumetric glow, controlled bloom, no clipping\\nComposition: wide cinematic framing with 45% negative space for headline text\\nSubject constraints: no noisy background, no clutter, no text, no logos, no watermark\\nAspect ratio: {{ratio}}"
+    },
+    "feature-illustrations": {
+      "slug": "illustration-story",
+      "template": "Use case: illustration-story\\nAsset type: feature section illustration\\nPrimary request: minimal 3D-inspired conceptual illustration of product capability (automation, analytics, collaboration), one clear central metaphor\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: dark navy environment with cool cyan/indigo highlights from brand tokens\\nLighting style: studio-like soft key and gentle rim separation\\nComposition: centered subject with simple foreground/background layers and open margins\\nSubject constraints: no noisy background, no over-detailed micro parts, no fake text, no watermark\\nAspect ratio: {{ratio}}"
+    },
+    "testimonial-placeholders": {
+      "slug": "stylized-concept",
+      "template": "Use case: stylized-concept\\nAsset type: testimonial/profile placeholder\\nPrimary request: neutral premium portrait placeholder silhouette/avatar bust with smooth gradients and subtle geometric halo\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: monochrome navy-to-cyan progression aligned to token palette\\nLighting style: soft frontal fill with low-intensity edge glow\\nComposition: subject centered with consistent safe padding for circular/rounded crop\\nSubject constraints: no noisy background, no facial detail clutter, no accessories, no watermark, no text\\nAspect ratio: {{ratio}}"
+    },
+    "blog-thumbnails": {
+      "slug": "ads-marketing",
+      "template": "Use case: ads-marketing\\nAsset type: blog thumbnail visual\\nPrimary request: editorial-grade tech concept scene representing strategy, growth, engineering, or design topic with one dominant focal element\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: navy-indigo base with selective cyan highlights and restrained contrast\\nLighting style: directional cinematic soft light, balanced shadows, subtle atmosphere\\nComposition: strong focal object, high readability at small size, reserved negative space for optional title overlay\\nSubject constraints: no noisy background, no tiny clutter, no gibberish text, no watermark\\nAspect ratio: {{ratio}}"
+    }
+  }
+}

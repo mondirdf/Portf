@@ -1,0 +1,12 @@
+{
+  "useCase": "testimonial-placeholders",
+  "slug": "stylized-concept",
+  "ratio": "4x3",
+  "size": "1408x1056",
+  "prompt": "Use case: stylized-concept\\nAsset type: testimonial/profile placeholder\\nPrimary request: neutral premium portrait placeholder silhouette/avatar bust with smooth gradients and subtle geometric halo\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: monochrome navy-to-cyan progression aligned to token palette\\nLighting style: soft frontal fill with low-intensity edge glow\\nComposition: subject centered with consistent safe padding for circular/rounded crop\\nSubject constraints: no noisy background, no facial detail clutter, no accessories, no watermark, no text\\nAspect ratio: 4x3",
+  "outputs": {
+    "webp": "testimonial-placeholders-core-4x3-v1.webp",
+    "jpg": "testimonial-placeholders-core-4x3-v1.jpg"
+  },
+  "status": "pending-generation"
+}

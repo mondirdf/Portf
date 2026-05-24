@@ -1,0 +1,12 @@
+{
+  "useCase": "hero-background",
+  "slug": "stylized-concept",
+  "ratio": "1x1",
+  "size": "1024x1024",
+  "prompt": "Use case: stylized-concept\\nAsset type: website hero background\\nPrimary request: abstract futuristic gradient atmosphere with layered geometric light planes and subtle glass depth\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: deep navy and indigo base (#040b22 #081834 #0a1d43) with cyan accents (#7dd3fc #38bdf8)\\nLighting style: soft volumetric glow, controlled bloom, no clipping\\nComposition: wide cinematic framing with 45% negative space for headline text\\nSubject constraints: no noisy background, no clutter, no text, no logos, no watermark\\nAspect ratio: 1x1",
+  "outputs": {
+    "webp": "hero-background-core-1x1-v1.webp",
+    "jpg": "hero-background-core-1x1-v1.jpg"
+  },
+  "status": "pending-generation"
+}

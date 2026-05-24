@@ -1,0 +1,12 @@
+{
+  "useCase": "blog-thumbnails",
+  "slug": "ads-marketing",
+  "ratio": "16x9",
+  "size": "1536x864",
+  "prompt": "Use case: ads-marketing\\nAsset type: blog thumbnail visual\\nPrimary request: editorial-grade tech concept scene representing strategy, growth, engineering, or design topic with one dominant focal element\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: navy-indigo base with selective cyan highlights and restrained contrast\\nLighting style: directional cinematic soft light, balanced shadows, subtle atmosphere\\nComposition: strong focal object, high readability at small size, reserved negative space for optional title overlay\\nSubject constraints: no noisy background, no tiny clutter, no gibberish text, no watermark\\nAspect ratio: 16x9",
+  "outputs": {
+    "webp": "blog-thumbnails-core-16x9-v1.webp",
+    "jpg": "blog-thumbnails-core-16x9-v1.jpg"
+  },
+  "status": "pending-generation"
+}

@@ -1,0 +1,12 @@
+{
+  "useCase": "feature-illustrations",
+  "slug": "illustration-story",
+  "ratio": "1x1",
+  "size": "1024x1024",
+  "prompt": "Use case: illustration-story\\nAsset type: feature section illustration\\nPrimary request: minimal 3D-inspired conceptual illustration of product capability (automation, analytics, collaboration), one clear central metaphor\\nMood keywords: clean, futuristic, elegant, premium\\nColor bias: dark navy environment with cool cyan/indigo highlights from brand tokens\\nLighting style: studio-like soft key and gentle rim separation\\nComposition: centered subject with simple foreground/background layers and open margins\\nSubject constraints: no noisy background, no over-detailed micro parts, no fake text, no watermark\\nAspect ratio: 1x1",
+  "outputs": {
+    "webp": "feature-illustrations-core-1x1-v1.webp",
+    "jpg": "feature-illustrations-core-1x1-v1.jpg"
+  },
+  "status": "pending-generation"
+}
