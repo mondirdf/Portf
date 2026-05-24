@@ -98,7 +98,7 @@ export function App() {
   return (
     <div className="relative min-h-screen overflow-x-hidden text-[var(--color-text-primary)]">
       <BackgroundFx />
-      <Navbar theme={theme} onToggleTheme={() => setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'))} />
+      <Navbar />
       <main className="relative z-10">
         <Hero />
         <About />
@@ -110,24 +110,46 @@ export function App() {
   );
 }
 
-function Navbar({ theme, onToggleTheme }) {
+function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <GlassNav>
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-bold tracking-[var(--tracking-heading-wide)] text-[var(--color-accent)]">ALEX DEV</span>
+    <GlassNav className={isScrolled ? 'glass-nav--scrolled' : 'glass-nav--top'}>
+      <motion.nav
+        animate={{
+          y: isScrolled ? 10 : 0,
+          scale: isScrolled ? 0.98 : 1,
+        }}
+        transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+        className="mx-auto flex w-[90%] max-w-6xl items-center justify-between px-5 py-3 md:px-6"
+      >
+        <a href="#home" className="text-xl font-extrabold tracking-[0.08em] text-[#3B82F6]">DF</a>
+
         <ul className="hidden gap-6 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-text-secondary)] md:flex">
           {navLinks.map((item) => (
             <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="motion-hover-lift transition-colors hover:text-[var(--color-accent)]">
+              <a href={`#${item.toLowerCase()}`} className="motion-hover-lift transition-colors hover:text-[#3B82F6]">
                 {item}
               </a>
             </li>
           ))}
         </ul>
-        <GlassButton variant="secondary" className="text-xs md:text-sm" onClick={onToggleTheme}>
-          {theme === 'light' ? 'Dark mode' : 'Light mode'}
-        </GlassButton>
-      </nav>
+
+        <button
+          type="button"
+          aria-label="Open menu"
+          className="nav-menu-btn"
+        >
+          <span aria-hidden="true" className="nav-menu-icon" />
+        </button>
+      </motion.nav>
     </GlassNav>
   );
 }
