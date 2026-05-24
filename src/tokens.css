@@ -29,11 +29,12 @@
   --surface-glass-high: rgba(255, 255, 255, 0.16);
 
   /* Typography */
-  --font-family-sans: Inter, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
-  --font-family-display: 'Sora', Inter, 'Segoe UI', system-ui, sans-serif;
+  --font-family-sans: 'Source Sans 3', 'Inter', 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --font-family-display: 'Space Grotesk', 'Sora', 'Inter', 'Segoe UI', system-ui, sans-serif;
   --font-size-h1: clamp(2.6rem, 5vw, 4.75rem);
   --font-size-h2: clamp(1.9rem, 3.2vw, 2.7rem);
   --font-size-h3: clamp(1.5rem, 2.3vw, 2rem);
+  --font-size-h4: clamp(1.2rem, 1.8vw, 1.5rem);
   --font-size-body: 1rem;
   --font-size-caption: 0.8125rem;
   --font-weight-medium: 500;
@@ -41,8 +42,12 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
   --line-height-tight: 1.15;
-  --line-height-normal: 1.55;
+  --line-height-normal: 1.6;
   --line-height-relaxed: 1.7;
+  --tracking-heading: 0.01em;
+  --tracking-heading-wide: 0.02em;
+  --tracking-button: 0.015em;
+  --measure-readable: 70ch;
 
   /* Spacing / radius */
   --space-1: 0.25rem;

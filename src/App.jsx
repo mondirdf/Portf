@@ -62,6 +62,7 @@ export function App() {
         <Projects />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
@@ -70,8 +71,8 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border-hairline)] bg-[rgba(4,14,35,0.34)] backdrop-blur-[var(--blur-medium)]">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-bold tracking-wide text-[var(--color-accent)]">ALEX DEV</span>
-        <ul className="hidden gap-6 text-sm text-[var(--color-text-secondary)] md:flex">
+        <span className="text-lg font-bold tracking-[var(--tracking-heading-wide)] text-[var(--color-accent)]">ALEX DEV</span>
+        <ul className="hidden gap-6 text-sm font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-text-secondary)] md:flex">
           {navLinks.map((item) => (
             <li key={item}>
               <a href={`#${item.toLowerCase()}`} className="transition hover:text-[var(--color-accent)]">
@@ -101,6 +102,9 @@ function Hero() {
         <h1 className="text-display text-[var(--color-warn)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
           Building intelligent digital experiences.
         </h1>
+        <p className="text-body text-measure mx-auto mt-6">
+          I design and engineer performant products with clean systems, accessible UI, and expressive motion that scale beautifully from mobile to desktop.
+        </p>
       </motion.div>
     </section>
   );
@@ -120,12 +124,12 @@ function About() {
       <h3 className="text-heading mb-6">About Me</h3>
       <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
         <GlassCard className="p-8">
-          <p className="text-body">
+          <p className="text-body text-measure">
             I’m a product-minded developer focused on crafting fast, scalable, and emotionally resonant digital experiences. My work combines precise engineering with a contemporary visual style.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {skills.map((skill) => (
-              <span key={skill} className="rounded-full border border-[var(--color-border-hairline)] bg-[var(--surface-glass-low)] px-4 py-2 text-sm text-[var(--color-text-secondary)]">
+              <span key={skill} className="rounded-full border border-[var(--color-border-hairline)] bg-[var(--surface-glass-low)] px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">
                 {skill}
               </span>
             ))}
@@ -134,8 +138,8 @@ function About() {
         <div className="grid gap-4">
           {stats.map((stat) => (
             <GlassCard key={stat.label} className="p-6">
-              <p className="text-3xl font-bold text-[var(--color-accent)]">{stat.value}</p>
-              <p className="text-[var(--color-text-caption)]">{stat.label}</p>
+              <p className="text-3xl font-bold tracking-[var(--tracking-heading)] text-[var(--color-accent)]">{stat.value}</p>
+              <p className="text-caption uppercase tracking-[var(--tracking-button)]">{stat.label}</p>
             </GlassCard>
           ))}
         </div>
@@ -162,11 +166,11 @@ function Projects() {
               <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-[var(--color-border-hairline)] bg-gradient-to-br from-[rgba(125,211,252,0.2)] to-[rgba(99,102,241,0.2)] text-sm text-[var(--color-text-secondary)]">
                 {project.preview}
               </div>
-              <h4 className="mb-2 text-xl font-semibold">{project.name}</h4>
-              <p className="mb-4 text-sm text-[var(--color-text-caption)]">{project.description}</p>
+              <h4 className="text-card-title mb-2">{project.name}</h4>
+              <p className="text-caption text-measure mb-4">{project.description}</p>
               <div className="mb-5 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
-                  <span key={tech} className="rounded-full bg-[var(--surface-glass-mid)] px-3 py-1 text-xs text-[var(--color-accent)]">
+                  <span key={tech} className="rounded-full bg-[var(--surface-glass-mid)] px-3 py-1 text-xs font-medium uppercase tracking-[var(--tracking-button)] text-[var(--color-accent)]">
                     {tech}
                   </span>
                 ))}
@@ -195,7 +199,7 @@ function Contact() {
     >
       <GlassCard className="p-8 md:p-10">
         <h3 className="text-heading mb-4">Let&apos;s Build Something Great</h3>
-        <p className="text-body mb-8">Open to creative collaborations, product builds, and ambitious ideas.</p>
+        <p className="text-body text-measure mb-8">Open to creative collaborations, product builds, and ambitious ideas.</p>
         <form className="space-y-4">
           <input className="glass-input" placeholder="Name" type="text" />
           <input className="glass-input" placeholder="Email" type="email" />
@@ -230,5 +234,16 @@ function BackgroundFx() {
         />
       ))}
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="relative z-10 border-t border-[var(--color-border-hairline)] bg-[rgba(4,14,35,0.35)] px-6 py-8">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+        <p className="text-caption">© {new Date().getFullYear()} Alex Dev. Crafted with intention.</p>
+        <p className="text-caption uppercase tracking-[var(--tracking-button)]">React · Tailwind · Framer Motion</p>
+      </div>
+    </footer>
   );
 }
