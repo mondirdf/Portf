@@ -181,7 +181,7 @@ function Projects() {
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
           <motion.article key={project.name} whileHover={{ transform: 'translate3d(0,-6px,0) scale(1.02)' }} transition={{ duration: motionTokens.microDuration, ease: motionTokens.easeNatural }} className="motion-hover-lift motion-hover-parallax">
-            <GlassPanel className="h-full p-5" emphasis="flat">
+            <GlassPanel className="glass-panel--liquid-card h-full p-5" emphasis="liquid">
               <div className="mb-4 flex h-40 items-center justify-center rounded-2xl border border-[var(--color-border-hairline)] bg-gradient-to-br from-[var(--surface-preview-start)] to-[var(--surface-preview-end)] text-sm text-[var(--color-text-secondary)]">
                 {project.preview}
               </div>
