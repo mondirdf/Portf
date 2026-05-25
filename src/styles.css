@@ -343,6 +343,42 @@ body {
 }
 
 .section-shell { padding-inline: var(--section-padding-x); padding-block: var(--section-padding-y); }
+.flow-wrapper { position: relative; }
+.flow-pin-section {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  z-index: 1;
+  background: transparent;
+}
+
+.flow-art-container {
+  min-height: 100vh;
+  transform-origin: bottom left;
+  will-change: transform;
+}
+
+.flow-follow-section {
+  position: relative;
+  z-index: 2;
+  margin-top: -8vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-pin-section {
+    position: relative;
+    min-height: auto;
+  }
+
+  .flow-art-container {
+    transform: none !important;
+  }
+
+  .flow-follow-section {
+    margin-top: 0;
+  }
+}
+
 .text-display { font-family: var(--font-family-display); font-size: var(--font-size-h1); line-height: var(--line-height-tight); font-weight: var(--font-weight-extrabold); letter-spacing: var(--tracking-heading-wide); }
 .hero-title {
   font-family: 'Erica One', var(--font-family-display);
