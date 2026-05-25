@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oi&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap');
 @import './tokens.css';
 
 @tailwind base;
@@ -344,6 +344,10 @@ body {
 
 .section-shell { padding-inline: var(--section-padding-x); padding-block: var(--section-padding-y); }
 .text-display { font-family: var(--font-family-display); font-size: var(--font-size-h1); line-height: var(--line-height-tight); font-weight: var(--font-weight-extrabold); letter-spacing: var(--tracking-heading-wide); }
+.hero-title {
+  font-family: 'Oi', var(--font-family-display);
+  font-weight: 400;
+}
 .text-heading { font-family: var(--font-family-display); font-size: var(--font-size-h3); line-height: 1.25; font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-heading); }
 .text-body { font-size: var(--font-size-body); line-height: var(--line-height-normal); color: var(--color-text-secondary); }
 .text-caption { font-size: var(--font-size-caption); line-height: var(--line-height-relaxed); color: var(--color-text-caption); }
