@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const navLinks = ['Home', 'About', 'Projects', 'Contact'];
-
 const skills = ['React', 'TypeScript', 'Tailwind', 'Node.js', 'Framer Motion', 'UI/UX'];
 
 const stats = [
@@ -121,7 +119,6 @@ export function App() {
     <div className="relative min-h-screen overflow-x-hidden text-[var(--color-text-primary)]">
       <BackgroundFx />
       <GlassFilter />
-      <Navbar />
       <main className="relative z-10">
         <Hero />
         <About />
@@ -130,136 +127,6 @@ export function App() {
       </main>
       <Footer />
     </div>
-  );
-}
-
-function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    const currentTheme = document.documentElement.dataset.theme;
-    setIsDarkMode(currentTheme === 'dark');
-  }, []);
-
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
-    };
-
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  useEffect(() => {
-    const sectionIds = navLinks.map((item) => item.toLowerCase());
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActiveSection(visible.target.id);
-      },
-      { threshold: [0.2, 0.45, 0.7], rootMargin: '-20% 0px -35% 0px' },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleTheme = () => {
-    const nextDarkMode = !isDarkMode;
-    document.documentElement.dataset.theme = nextDarkMode ? 'dark' : 'light';
-    setIsDarkMode(nextDarkMode);
-  };
-
-  return (
-    <GlassNav className={isScrolled ? 'glass-nav--scrolled' : 'glass-nav--top'}>
-      <motion.nav
-        animate={{
-          y: isScrolled ? 10 : 0,
-          scale: isScrolled ? 0.98 : 1,
-        }}
-        transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto flex w-[92%] max-w-6xl items-center justify-between px-3 py-2 md:w-[94%] md:px-5 md:py-2.5"
-      >
-        <a href="#home" className="nav-brand">
-          <span className="nav-brand__badge">DF</span>
-          <span className="nav-brand__text">Designer · Frontend Engineer</span>
-        </a>
-
-        <ul className="nav-link-list hidden md:flex">
-          {navLinks.map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase()}`}
-                className={`nav-link-chip ${activeSection === item.toLowerCase() ? 'nav-link-chip--active' : ''}`}
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-navigation"
-            className="nav-menu-btn md:hidden"
-            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          >
-            <span className="nav-theme-icon" aria-hidden="true">{isMobileMenuOpen ? '✕' : '☰'}</span>
-          </button>
-
-          <button
-            type="button"
-            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={isDarkMode ? 'Light mode' : 'Dark mode'}
-            className="nav-menu-btn"
-            onClick={toggleTheme}
-          >
-            <span className="nav-theme-icon" aria-hidden="true">{isDarkMode ? '☀️' : '🌙'}</span>
-          </button>
-          <a href="#contact" className="nav-cta hidden md:inline-flex">Start a Project</a>
-        </div>
-      </motion.nav>
-
-      <motion.div
-        id="mobile-navigation"
-        initial={false}
-        animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : -6, height: isMobileMenuOpen ? 'auto' : 0 }}
-        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto w-[92%] overflow-hidden px-3 pb-2 md:hidden"
-      >
-        <div className="rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--surface-glass-mid)] p-2 backdrop-blur-xl">
-          {navLinks.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className={`block rounded-xl px-4 py-2 text-sm font-medium uppercase tracking-[var(--tracking-button)] transition-colors hover:bg-[var(--surface-glass-low)] hover:text-[#3B82F6] ${activeSection === item.toLowerCase() ? 'bg-[var(--surface-glass-low)] text-[#3B82F6]' : 'text-[var(--color-text-secondary)]'}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-      </motion.div>
-    </GlassNav>
   );
 }
 
