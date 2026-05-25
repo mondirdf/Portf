@@ -150,7 +150,7 @@ function AboutProjectsFlow() {
     const onScroll = () => {
       const bounds = wrapper.getBoundingClientRect();
       const progress = Math.min(Math.max((window.innerHeight - bounds.top) / (window.innerHeight * 0.75), 0), 1);
-      const rotation = 30 * (1 - progress);
+      const rotation = 18 * (1 - progress);
       aboutInner.style.transform = `rotate(${rotation}deg)`;
     };
 
