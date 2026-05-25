@@ -115,12 +115,18 @@ export function App() {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
 
+  const isDarkMode = theme === 'dark';
+
+  const handleThemeToggle = (checked) => {
+    setTheme(checked ? 'dark' : 'light');
+  };
+
   return (
     <div className="relative min-h-screen overflow-x-hidden text-[var(--color-text-primary)]">
       <BackgroundFx />
       <GlassFilter />
       <main className="relative z-10">
-        <Hero />
+        <Hero isDarkMode={isDarkMode} onThemeToggle={handleThemeToggle} />
         <About />
         <Projects />
         <Contact />
@@ -130,15 +136,32 @@ export function App() {
   );
 }
 
-function Hero() {
+function Hero({ isDarkMode, onThemeToggle }) {
   return (
     <section id="home" className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center motion-section-transition">
+      <div className="mb-8 flex w-full justify-center">
+        <Switch checked={isDarkMode} onChange={onThemeToggle} />
+      </div>
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionFadeUp} className="w-full text-center motion-enter-fade-up">
         <h1 className="text-display text-[var(--color-hero-heading)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
           Building intelligent digital experiences.
         </h1>
       </motion.div>
     </section>
+  );
+}
+
+function Switch({ checked, onChange }) {
+  return (
+    <label className="relative inline-block h-[2em] w-[3.5em]" aria-label="Toggle dark mode">
+      <input
+        type="checkbox"
+        className="peer h-0 w-0 opacity-0"
+        checked={checked}
+        onChange={(event) => onChange(event.target.checked)}
+      />
+      <span className="absolute inset-0 cursor-pointer rounded-[30px] bg-gray-200 transition duration-500 before:absolute before:bottom-[15%] before:left-[10%] before:h-[1.4em] before:w-[1.4em] before:rounded-full before:bg-gray-200 before:shadow-[inset_8px_-4px_0px_0px_#fff000] before:transition before:duration-500 before:content-[''] peer-checked:bg-gray-400 peer-checked:before:translate-x-full peer-checked:before:shadow-[inset_15px_-4px_0px_15px_#fff000] dark:bg-[#0a1a44] dark:peer-checked:bg-[#102b6a] dark:before:bg-[#0a1a44]" />
+    </label>
   );
 }
 
