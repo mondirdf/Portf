@@ -138,11 +138,11 @@ export function App() {
 
 function Hero({ isDarkMode, onThemeToggle }) {
   return (
-    <section id="home" className="hero-bg section-shell mx-auto grid min-h-screen max-w-6xl items-center motion-section-transition">
-      <div className="-mt-10 mb-6 flex w-full justify-center">
+    <section id="home" className="hero-bg section-shell mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center motion-section-transition">
+      <div className="mb-3 flex w-full justify-center">
         <Switch checked={isDarkMode} onChange={onThemeToggle} />
       </div>
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionFadeUp} className="-mt-8 w-full text-center motion-enter-fade-up">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionFadeUp} className="w-full text-center motion-enter-fade-up">
         <h1 className="text-display hero-title text-[var(--color-hero-heading)] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
           Building intelligent digital experiences.
         </h1>
