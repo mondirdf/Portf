@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const skills = ['React', 'TypeScript', 'Tailwind', 'Node.js', 'Framer Motion', 'UI/UX'];
@@ -127,11 +127,53 @@ export function App() {
       <GlassFilter />
       <main className="relative z-10">
         <Hero isDarkMode={isDarkMode} onThemeToggle={handleThemeToggle} />
-        <About />
-        <Projects />
+        <AboutProjectsFlow />
         <Contact />
       </main>
       <Footer />
+    </div>
+  );
+}
+
+function AboutProjectsFlow() {
+  const wrapperRef = useRef(null);
+  const aboutInnerRef = useRef(null);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const aboutInner = aboutInnerRef.current;
+    if (!wrapper || !aboutInner) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    const onScroll = () => {
+      const bounds = wrapper.getBoundingClientRect();
+      const progress = Math.min(Math.max((window.innerHeight - bounds.top) / (window.innerHeight * 0.75), 0), 1);
+      const rotation = 30 * (1 - progress);
+      aboutInner.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  return (
+    <div ref={wrapperRef} className="flow-wrapper">
+      <section className="flow-pin-section">
+        <div ref={aboutInnerRef} className="flow-art-container">
+          <About />
+        </div>
+      </section>
+      <section className="flow-follow-section">
+        <Projects />
+      </section>
     </div>
   );
 }
